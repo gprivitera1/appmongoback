@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swagger casero</title>
+</head>
+<body>
+    <body>
+        
+        <style>
+            pre code {
+                background-color: #eee;
+                border: 1px solid #999;
+                display: block;
+                padding: 20px;
+                }
+
+            .nota {
+                background-color: rgb(248, 248, 93);
+                font-size: large;
+                line-height: 20px;
+                text-align: center;
+            }
+            h1{
+                text-align: center;
+            }
+
+            hr{
+                border: 10px solid green;
+                border-radius: 5px;
+            }
+        </style>
+
+        <h1>Proyecto</h1>
+
+        <p class="nota">
+            <strong>
+                Es mi primera vez con mongoDB. Hice CRUD básico para las hamburguesas y las papas fritas.<br/>
+                El menu se puede crear y listar con la relación de hamburguesa y papas. <br/>
+                He cambiado la estructura ya que solo usar el index y modelos quedaría muy espagueti. Preferí un modelo MVC.<br/>
+                En los modelos estan los body para los endpoint, igual la db tiene todo para las pruebas.
+            </strong>
+        </p>
+
+        <h2>Recursos disponibles:</h2>
+
+        <h3>Menus</h3>
+        <p>GET /menus → lista el menu con relaciones</p>
+        <p>POST /menus → crear menu</p>
+        <pre>Ejemplo: 
+            <code>
+                {
+                    "name": "Combo Extra Mega Big Bacon Grande",
+                    "price": "1100",
+                    "burger": "634cbd2de5740433f562325c",
+                    "fries": "634cb6d22778e13c5829cf95"
+                }
+            </code>
+        </pre>
+
+        <hr/>
+
+        <h3>Burgers</h3>
+        <p>GET /burgers → lista todas las burgers</p>
+        <p>POST /burgers → crear burger</p>
+        <pre>Ejemplo: 
+            <code>
+                {
+                    "name": "La clasica que nunca falla",
+                    "price": "800",
+                    "ingredients": {
+                        "bread": true,
+                        "burgers": 2,
+                        "lettuce": true,
+                        "tomato": true,
+                        "cheese": true,
+                        "bacon": false,
+                        "sauce": "Mayo"
+                    }
+                }
+            </code>
+        </pre>
+        <p>GET /burgers/:key/:value → obtener datos de burguer segun parametros de busqueda o lista todos</p>
+        <pre>Ejemplo: 
+            <code>
+                GET /burgers/_id/634caa95e57d739001be6fda
+            </code>
+        </pre>
+        <p>PUT /burgers/:key/:value → actualizar burger</p>
+        <p>DELETE /burgers/:key/:value → borra burger</p>
+
+        <hr/>
+
+        <h3>Papas Fritas</h3>
+        <p>GET /fries → lista todas las burgers</p>
+        <p>POST /fries → crear burger</p>
+        <pre>Ejemplo: 
+            <code>
+                {
+                    "name": "Papas Chicas",
+                    "price": "50",
+                    "size": "Small"
+                }
+            </code>
+        </pre>
+        <p>GET /fries/:key/:value → obtener datos de papas fritas segun parametros de busqueda o lista todos</p>
+        <p>PUT /fries/:key/:value → actualizar papas</p>
+        <p>DELETE /fries/:key/:value → borra papas</p>
+    </body>
+</body>
+</html>
